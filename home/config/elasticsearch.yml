@@ -68,7 +68,9 @@ discovery.type: single-node
 # http.cors.allow-origin: '*'
 
 # Set a port for HTTP (9200 is the default, or with no port specified looks at subsequent ports to find one open):
-http.port: 9200
+# Leave this commented out so that multiple instances running on the same server will not fight over a hard-coded port
+# but instead will dynamically try to find the first open one.
+#http.port: 9200
 
 # For more information, see the documentation at:
 # <http://www.elastic.co/guide/en/elasticsearch/reference/current/modules-network.html>
