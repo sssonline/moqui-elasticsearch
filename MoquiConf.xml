@@ -36,19 +36,19 @@
                 <url-pattern>/kibana/*</url-pattern>
             </filter>
 
-            <!--<servlet name="ElasticSearchProxy" class="org.eclipse.jetty.proxy.ProxyServlet$Transparent" load-on-startup="1" async-supported="true">-->
-            <!--    &lt;!&ndash; this proxies to the embedded ElasticSearch instance &ndash;&gt;-->
-            <!--    <init-param name="proxyTo" value="http://localhost:9200"/>-->
-            <!--    <init-param name="prefix" value="/elastic"/>-->
-            <!--    <url-pattern>/elastic/*</url-pattern>-->
-            <!--</servlet>-->
-            <!--<servlet name="KibanaProxy" class="org.eclipse.jetty.proxy.ProxyServlet$Transparent" load-on-startup="1" async-supported="true">-->
-            <!--    &lt;!&ndash; this proxies to a Kibana instance run locally, in another container, etc &ndash;&gt;-->
-            <!--    &lt;!&ndash; in kibana.yml set server.basePath: "/kibana" &ndash;&gt;-->
-            <!--    <init-param name="proxyTo" value="http://${kibana_host}:${kibana_port}"/>-->
-            <!--    <init-param name="prefix" value="/kibana"/>-->
-            <!--    <url-pattern>/kibana/*</url-pattern>-->
-            <!--</servlet>-->
+            <servlet name="ElasticSearchProxy" class="org.eclipse.jetty.proxy.ProxyServlet$Transparent" load-on-startup="1" async-supported="true">
+                <!-- this proxies to the embedded ElasticSearch instance -->
+                <init-param name="proxyTo" value="http://localhost:9200"/>
+                <init-param name="prefix" value="/elastic"/>
+                <url-pattern>/elastic/*</url-pattern>
+            </servlet>
+            <servlet name="KibanaProxy" class="org.eclipse.jetty.proxy.ProxyServlet$Transparent" load-on-startup="1" async-supported="true">
+                <!-- this proxies to a Kibana instance run locally, in another container, etc -->
+                <!-- in kibana.yml set server.basePath: "/kibana" -->
+                <init-param name="proxyTo" value="http://${kibana_host}:${kibana_port}"/>
+                <init-param name="prefix" value="/kibana"/>
+                <url-pattern>/kibana/*</url-pattern>
+            </servlet>
         </webapp>
     </webapp-list>
     <screen-facade>
